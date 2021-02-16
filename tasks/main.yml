@@ -1,12 +1,12 @@
 - name: Configure yum repo for Kubernetes 
   yum_repository:
-      name: kubernetes.repo
-      description: Kubernetes Repos
-      baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
-      gpgcheck: yes
-      enabled: yes
-      repo_gpgcheck: yes
-      gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+     name: kubernetes.repo
+     description: Kubernetes Repos
+     baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+     gpgcheck: yes
+     enabled: yes
+     repo_gpgcheck: yes
+     gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 
 - name: Install Kubeadm , docker and tc software
   package:
@@ -19,9 +19,9 @@
 
 - name: Enabel services for docker and kubelet 
   service:
-     name: "{{ item }}"
-     state: started
-     enabled: yes
+    name: "{{ item }}"
+    state: started
+    enabled: yes
   loop:
     - kubelet
     - docker
